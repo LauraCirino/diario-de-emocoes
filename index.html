@@ -8,6 +8,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <h1>📘 Diario De Emoções</h1>
+
+    <form>
+        <label for="usuario">Seu nome:</label>
+        <input type="text" id="usuario" placeholder="Digite seu nome ou apelido" required>
+        <label for="data">Data e Hora:</label>
+        <input type="datetime-local" id="data" required>
+        <label for="titulo">Titulo da entrada:</label>
+        <input type="text" id="titulo" placeholder="Dê um titulo para sua entrada" required>
+        <label for="texto">Como você está se sentindo hoje?</label>
+        <textarea id="texto" placeholder="Descreva seus sentimentos aqui..." required></textarea>
+        <button type="button" onclick="salvarEntrada()">Salvar no Diário</button>
+    </form>
+
+    <div class="historico">
+        <h2>📝 Historico De Entradas</h2>
+        <div id="listaEntradas"></div>
+    </div>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <button onclick="mostrarFrase()">Quero Uma Frase Motivacional 💬</button>
+        <p id="fraseMotivacional" style="margin-top: 15px; font-style: italic; font-size: 1.1em;"></p>
+    </div>
     
     <script src="script.js"></script>
 </body>
