@@ -54,10 +54,10 @@ function salvarEntrada(){
 function mostrarEntradas(){
     const lista = document.getElementById("listaEntradas");
     lista.innerHTML = "";
-    const entradas = JSON.parse(localStorage.getItem("diaroEmocoes"))|| [];
+    const entradas = JSON.parse(localStorage.getItem("diarioEmocoes"))|| [];
 
     if(entradas.length === 0) {
-        lista.innerHTML = "<p>Seu diário ainda está cazio.";
+        lista.innerHTML = "<p>Seu diário ainda está vazio.</p>";
         return;
     }
 
@@ -70,7 +70,10 @@ function mostrarEntradas(){
         <p><strong>Usuário:</strong> ${entrada.usuario}</p>
         <p><strong>Data:</strong> ${new Date(entrada.data).toLocaleString("pt-BR")}</p>
         <p> ${entrada.texto}</p>
-        <p class="humor"><strong>Humor:</strong> ${entrada.humor} <span class="emoji"></p>
+        <p class="humor">
+            <strong>Humor:</strong> ${entrada.humor} 
+            <span class="emoji">${entrada.emoji}</span>
+        </p>
 
         <div class="likes" data-id="${entrada.id}">
             ❤ <span>${entrada.likes}</span> Curtidas
@@ -80,7 +83,7 @@ function mostrarEntradas(){
             <h4>Comentário:</h4>
             <div class="lista-comentarios"></div>
             <div class="novo-comentario">
-                <input type="text"> placeholder="Escrever um comentário..." />
+                <input type="text" placeholder="Escrever um comentário..." />
                 <button>enviar</button>
             </div>
         </div>
@@ -132,19 +135,19 @@ function adicionarComentario(id, texto){
 }
 
 const frasesMotivacionais = {
-    Feliz:[
+    feliz:[
         "Que bom que você está feliz! Continue espalhando essa energia positiva!",
         "Sorria, a vida é bela e cheia de oportunidades!",
         "Continue assim, com essa vibe positiva que contagia!",
     ],
 
-    Neutro:[
+    neutro:[
         "Um dia de cada vez, pequenos passos também levam longe.",
         "Respire fundo e busque o que te faz bem!",
         "Que hoje você encontre motivos para sorrir e se sentir leve.",
     ],
 
-    Triste:[
+    triste:[
         "Tudo passa, mantenha a esperança e acredite em dias melhores.",
         "Você é mais forte do que imagina. Vá com calma e se cuide!",
         "Após a tempestade vem o arco-íris, confie no seu poder de superação.",
@@ -154,14 +157,14 @@ const frasesMotivacionais = {
 function mostrarFrase(){
     const entradas = JSON.parse(localStorage.getItem("diarioEmocoes"))|| [];
 
-    if(entradas.lehgth === 0){
+    if(entradas.length === 0){
         alert("Ainda não há entradas no Diário");
         return;
     }
 
     const ultimoHumor = entradas[0].humor;
     const frases = frasesMotivacionais[ultimoHumor] || frasesMotivacionais.Neutro;
-    const fraseEscolhida = frases[Math.floor(Math.random()*frases.lehgth)];
+    const fraseEscolhida = frases[Math.floor(Math.random()*frases.length)];
     const pFrase = document.getElementById("fraseMotivacional");
     pFrase.textContent = fraseEscolhida;
 
