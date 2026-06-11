@@ -31,7 +31,7 @@ webApp que é um Diário onde a pessoa pode escrever seus sentimentos ,registran
 1. Clone ou baixe este repositório.
 
 ```bash
-git clone https://github.com/cigarraa/diario-de-emocoes
+git clone https://github.com/LauraCirino/diario-de-emocoes
 ```
 
 2. Abra o arquivo `index.html` em seu navegador.
@@ -46,5 +46,5 @@ git clone https://github.com/cigarraa/diario-de-emocoes
 - **Isenção de Garantia:** O software é fornecido "como está", sem garantias de qualquer tipo, explícitas ou implícitas. Os autores não são responsáveis por quaisquer danos decorrentes do uso do software.
 
 ## 👩🏻‍💻 Autor(es)
-- [@cigarraa](https://github.com/cigarraa)
+- [@LauraCirino](https://github.com/LauraCirino)
 
